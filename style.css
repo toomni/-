@@ -1,81 +1,167 @@
+:root {
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --bg: #0f0c29;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text: #2d3436;
+}
+
 body {
-  font-family: 'Pretendard', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background-color: #f4f4f9;
-}
-
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 500px;
-  width: 90%;
-}
-
-h1 {
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-#games-container {
-  margin-bottom: 1.5rem;
-}
-
-.game-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #fafafa;
-  border-radius: 10px;
-  align-items: center;
-}
-
-.game-label {
-  font-weight: bold;
-  margin-right: 10px;
-  color: #777;
-  min-width: 50px;
-}
-
-.ball {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* 로또 공 색상 규정 (보통 번호대별로 다름) */
-.ball-1-10 { background-color: #fbc400; } /* 노란색 */
-.ball-11-20 { background-color: #69c8f2; } /* 파란색 */
-.ball-21-30 { background-color: #ff7272; } /* 빨간색 */
-.ball-31-40 { background-color: #aaa; }    /* 회색 */
-.ball-41-45 { background-color: #b0d840; } /* 초록색 */
+#app {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
 
-#generate-btn {
-  background-color: #4a90e2;
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+/* 캐릭터 루나 */
+.luna-character {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ff9ff3, #feca57);
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 0 20px #feca57;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.sparkle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="white" /></svg>');
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 입력 세션 */
+.input-section input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid var(--secondary);
+  font-size: 16px;
+  margin: 10px 0;
+  width: 80%;
+}
+
+.input-section button {
+  background: var(--primary);
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  width: 80%;
+  transition: transform 0.2s;
 }
 
-#generate-btn:hover {
-  background-color: #357abd;
+.input-section button:hover {
+  transform: scale(1.05);
+}
+
+/* 결과 세션 */
+.fortune-item {
+  margin: 20px 0;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.fortune-item h3 {
+  color: var(--primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fortune-text {
+  line-height: 1.6;
+  font-size: 15px;
+  white-space: pre-line;
+}
+
+.fortune-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+@media (min-width: 480px) {
+  .fortune-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 공유 버튼 */
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.share-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.kakao { background: #fee500; color: #3c1e1e; }
+.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.x-twitter { background: #000; }
+.line { background: #06c755; }
+.wechat { background: #07c160; }
+
+.hidden { display: none; }
+
+.lang-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#lang-select {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid white;
 }
