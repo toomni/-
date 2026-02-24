@@ -1,1 +1,81 @@
-/* Add styles here */
+body {
+  font-family: 'Pretendard', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f4f4f9;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+#games-container {
+  margin-bottom: 1.5rem;
+}
+
+.game-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.game-label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #777;
+  min-width: 50px;
+}
+
+.ball {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* 로또 공 색상 규정 (보통 번호대별로 다름) */
+.ball-1-10 { background-color: #fbc400; } /* 노란색 */
+.ball-11-20 { background-color: #69c8f2; } /* 파란색 */
+.ball-21-30 { background-color: #ff7272; } /* 빨간색 */
+.ball-31-40 { background-color: #aaa; }    /* 회색 */
+.ball-41-45 { background-color: #b0d840; } /* 초록색 */
+
+#generate-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#generate-btn:hover {
+  background-color: #357abd;
+}
